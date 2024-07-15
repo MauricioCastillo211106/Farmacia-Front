@@ -5,7 +5,7 @@ const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) 
     <div className="login-form">
       <h2>Login</h2>
       <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
-        <div>
+        <div className="form-field">
           <label>Email:</label>
           <input 
             type="email" 
@@ -14,7 +14,7 @@ const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) 
             required 
           />
         </div>
-        <div>
+        <div className="form-field">
           <label>Password:</label>
           <input 
             type="password" 
@@ -24,8 +24,11 @@ const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) 
           />
         </div>
         {error && <p style={{color: 'red'}}>{error}</p>}
-        <button type="submit">Login</button>
+        <button className="btn" type="submit">Login</button>
       </form>
+      <div className="register-link">
+        <a href="/register">Regístrate</a>
+      </div>
     </div>
   );
 };

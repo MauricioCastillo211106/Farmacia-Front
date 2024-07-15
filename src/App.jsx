@@ -6,6 +6,8 @@ import UserPage from './pages/UserPage';
 import AuthHeader from './components/organisms/AuthHeader';
 import MainHeader from './components/organisms/MainHeader';
 import Footer from './components/organisms/Footer';
+import './assets/styles.css';
+
 
 // Simulación de autenticación
 const isAuthenticated = () => {
