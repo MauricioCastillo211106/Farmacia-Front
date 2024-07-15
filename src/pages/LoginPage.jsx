@@ -14,6 +14,7 @@ const LoginPage = () => {
 
     if (user) {
       localStorage.setItem('auth', 'true');
+      localStorage.setItem('user', JSON.stringify(user));
       navigate('/home');
     } else {
       setError('Credenciales inválidas');

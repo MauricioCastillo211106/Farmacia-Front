@@ -1,41 +1,31 @@
 import React from 'react';
 
 const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit();
-  };
-
   return (
     <div className="login-form">
-      <h2>Iniciar Sesión</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-field">
-          <label>Correo Electrónico</label>
+      <h2>Login</h2>
+      <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
+        <div>
+          <label>Email:</label>
           <input 
             type="email" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Ingresa tu correo" 
-            required
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            required 
           />
         </div>
-        <div className="form-field">
-          <label>Contraseña</label>
+        <div>
+          <label>Password:</label>
           <input 
             type="password" 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Ingresa tu contraseña" 
-            required
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required 
           />
         </div>
-        <button className="btn" type="submit">Iniciar Sesión</button>
+        {error && <p style={{color: 'red'}}>{error}</p>}
+        <button type="submit">Login</button>
       </form>
-      <div className="register-link">
-        <a href="/register">Regístrate</a>
-      </div>
     </div>
   );
 };

@@ -14,6 +14,7 @@ const MainHeader = () => {
         <Link to="/products">Productos</Link>
         <Link to="/contact">Contacto</Link>
         <Link to="/about">Nosotros</Link>
+        <Link to="/user">cuenta</Link>
       </nav>
     </header>
   );
