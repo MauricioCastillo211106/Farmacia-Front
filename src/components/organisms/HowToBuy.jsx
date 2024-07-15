@@ -1,24 +1,33 @@
 import React from 'react';
+import Title from '../atoms/Title';
+import Subtitle from '../atoms/Subtitle';
+import Step from '../atoms/Step';
+import icon_path_1 from '../../assets/Images/icon-path-1.png';
+import icon_path_2 from '../../assets/Images/icon-path-2.png';
+import icon_path_3 from '../../assets/Images/icon-path-3.png';
+
 
 const HowToBuy = () => {
   return (
     <div className="how-to-buy">
-      <h2>TE LO PONEMOS FÁCIL</h2>
-      <h3>¿Cómo comprar?</h3>
-      <p>Comprar tus medicamentos en Farmacias Cristopher es un proceso rápido y sencillo. Solo tienes que:</p>
+      <Title>TE LO PONEMOS FÁCIL</Title>
+      <Subtitle>¿Cómo comprar?</Subtitle>
       <div className="steps">
-        <div className="step">
-          <h4>Elegir</h4>
-          <p>Selecciona tus medicamentos de entre todas nuestras opciones</p>
-        </div>
-        <div className="step">
-          <h4>Completar</h4>
-          <p>Selecciona la farmacia de tu elección y descarga tu váucher</p>
-        </div>
-        <div className="step">
-          <h4>Recoger</h4>
-          <p>Recoge y paga en tienda, es rápido y fácil.</p>
-        </div>
+        <Step
+          icon={icon_path_1}
+          title="Elegir"
+          description="Selecciona tus medicamentos de entre todas nuestras opciones."
+        />
+        <Step
+          icon={icon_path_2}
+          title="Completar"
+          description="Selecciona la farmacia de tu elección y descarga tu váucher."
+        />
+        <Step
+          icon={icon_path_3}
+          title="Recoger"
+          description="Recoge y paga en tienda, es rápido y fácil."
+        />
       </div>
     </div>
   );

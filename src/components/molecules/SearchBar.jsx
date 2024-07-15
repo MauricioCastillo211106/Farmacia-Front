@@ -1,12 +1,10 @@
 import React from 'react';
-import Input from '../atoms/Input';
-import Button from '../atoms/Button';
 
 const SearchBar = () => {
   return (
     <div className="search-bar">
-      <Input type="text" placeholder="Buscar" />
-      <Button>Buscar</Button>
+      <input type="text" className="search-input" placeholder="Buscar" />
+      <button className="search-button">Buscar</button>
     </div>
   );
 };

@@ -1,13 +1,14 @@
 import React from 'react';
-import SearchBar from '../components/molecules/SearchBar';
 import FeaturedProducts from '../components/molecules/FeaturedProducts';
 import HowToBuy from '../components/organisms/HowToBuy';
+import '../assets/styles.css';
 
 const HomePage = () => {
   return (
     <div className="home-page">
-      <SearchBar />
+      <h2>Productos destacados</h2>
       <FeaturedProducts />
+      <div className="section-divider"></div>
       <HowToBuy />
     </div>
   );
