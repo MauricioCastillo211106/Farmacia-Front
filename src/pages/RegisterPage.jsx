@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import RegisterForm from '../components/organisms/RegisterForm';
-import Header from '../components/organisms/Header';
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleRegister = () => {
+    const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
+    if (registeredUsers.some(u => u.email === email)) {
+      setError('El correo electrónico ya está registrado');
+    } else {
+      registeredUsers.push({ name, email, password });
+      localStorage.setItem('users', JSON.stringify(registeredUsers));
+      localStorage.setItem('auth', 'true');
+      navigate('/home');
+    }
+  };
+
   return (
     <div className="register-page">
-      <Header />
       <main>
-        <RegisterForm />
+        <RegisterForm 
+          name={name} 
+          setName={setName} 
+          email={email} 
+          setEmail={setEmail} 
+          password={password} 
+          setPassword={setPassword} 
+          onSubmit={handleRegister} 
+          error={error} 
+        />
       </main>
     </div>
   );

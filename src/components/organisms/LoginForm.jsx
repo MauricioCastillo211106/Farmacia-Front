@@ -1,35 +1,32 @@
-import React, { useState } from 'react';
-import Button from '../atoms/Button';
-import FormField from '../molecules/FormField';
+import React from 'react';
 
-const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    // Implementa la lógica de inicio de sesión aquí
-  };
-
+const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) => {
   return (
     <div className="login-form">
       <h2>Iniciar Sesión</h2>
-      <FormField
-        label="Correo Electrónico"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Ingresa tu correo"
-      />
-      <FormField
-        label="Contraseña"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Ingresa tu contraseña"
-      />
-      <Button type="button" onClick={handleLogin}>
-        Iniciar Sesión
-      </Button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <div className="form-field">
+        <label>Correo Electrónico</label>
+        <input 
+          type="email" 
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Ingresa tu correo" 
+        />
+      </div>
+      <div className="form-field">
+        <label>Contraseña</label>
+        <input 
+          type="password" 
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Ingresa tu contraseña" 
+        />
+      </div>
+      <button className="btn" onClick={onSubmit}>Iniciar Sesión</button>
+      <div className="register-link">
+        <a href="/register">Regístrate</a>
+      </div>
     </div>
   );
 };

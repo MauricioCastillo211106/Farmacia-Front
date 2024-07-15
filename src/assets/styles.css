@@ -2,138 +2,137 @@
 
 /* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Estilos para el body */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  /* Estilos para la cabecera */
-  .header {
-    background-color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  .header nav {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .header nav a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .header nav a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Estilos para la página de inicio de sesión */
-  .login-page, .register-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  }
-  
-  .login-form, .register-form {
-    position: relative;
-    top: 200px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    max-width: 100%;
-  }
-  
-  .login-form h2, .register-form h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  .form-field {
-    margin-bottom: 15px;
-  }
-  
-  .form-field label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .form-field input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .read-the-docs {
-    margin-top: 20px;
-    text-align: center;
-    color: #888;
-  }
-  
-  .card {
-    margin: 20px;
-    padding: 20px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-form .register-link {
-    margin-top: 10px;
-    text-align: center;
-  }
-  
-  .login-form .register-link a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .login-form .register-link a:hover {
-    text-decoration: underline;
-  }
-  
+/* Estilos para el body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Estilos para la cabecera */
+.header {
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.header nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header nav a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para la página de inicio de sesión */
+.login-page, .register-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+}
+
+.login-form, .register-form {
+  position: relative;
+  top: 200px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  max-width: 100%;
+}
+
+.login-form h2, .register-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.read-the-docs {
+  margin-top: 20px;
+  text-align: center;
+  color: #888;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .register-link {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login-form .register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-form .register-link a:hover {
+  text-decoration: underline;
+}

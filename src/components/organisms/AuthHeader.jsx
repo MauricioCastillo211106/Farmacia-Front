@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const AuthHeader = () => {
   return (
     <header className="header">
       <h1>Farmacia Cristopher</h1>
@@ -13,4 +13,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AuthHeader;
