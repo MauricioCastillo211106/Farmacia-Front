@@ -1,9 +1,11 @@
+// src/App.jsx
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
 import AuthHeader from './components/organisms/AuthHeader';
 import MainHeader from './components/organisms/MainHeader';
+import Footer from './components/organisms/Footer';
 
 // Simulación de autenticación
 const isAuthenticated = () => {
@@ -43,7 +45,9 @@ function App() {
 function AppWrapper() {
   return (
     <Router>
-      <App />
+      <div id="root">
+        <App />
+      </div>
     </Router>
   );
 }
@@ -53,6 +57,7 @@ function AuthLayout({ children }) {
     <>
       <AuthHeader />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
@@ -62,6 +67,7 @@ function MainLayout({ children }) {
     <>
       <MainHeader />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
