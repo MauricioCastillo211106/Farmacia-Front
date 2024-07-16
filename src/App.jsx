@@ -1,7 +1,9 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import HomePage from './pages/HomePage';
+import AdminPage from './pages/AdminPage';
 import UserPage from './pages/UserPage';
 import AuthHeader from './components/organisms/AuthHeader';
 import MainHeader from './components/organisms/MainHeader';
@@ -9,26 +11,36 @@ import Footer from './components/organisms/Footer';
 
 // Simulación de autenticación
 const isAuthenticated = () => {
+  // Reemplaza esta lógica con la lógica de autenticación real
   return localStorage.getItem('auth') === 'true';
 };
 
 function App() {
   return (
-    <div className="app">
-      <Routes>
-        <Route path="/login" element={<AuthLayout><LoginPage /></AuthLayout>} />
-        <Route path="/register" element={<AuthLayout><RegisterPage /></AuthLayout>} />
-        <Route
-          path="/home"
-          element={
-            isAuthenticated() ? (
-              <MainLayout><HomePage /></MainLayout>
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-        <Route
+    <Routes>
+      <Route path="/login" element={<AuthLayout><LoginPage /></AuthLayout>} />
+      <Route path="/register" element={<AuthLayout><RegisterPage /></AuthLayout>} />
+      <Route
+        path="/home"
+        element={
+          isAuthenticated() ? (
+            <MainLayout><HomePage /></MainLayout>
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          isAuthenticated() ? (
+            <MainLayout><AdminPage /></MainLayout>
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+              <Route
           path="/user"
           element={
             isAuthenticated() ? (
@@ -36,20 +48,19 @@ function App() {
             ) : (
               <Navigate to="/login" />
             )
-          }
-        />
-        <Route
-          path="/"
-          element={
-            isAuthenticated() ? (
-              <Navigate to="/home" />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-      </Routes>
-    </div>
+          }   
+          />
+      <Route
+        path="/"
+        element={
+          isAuthenticated() ? (
+            <Navigate to="/home" />
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+    </Routes>
   );
 }
 
@@ -65,8 +76,7 @@ function AuthLayout({ children }) {
   return (
     <>
       <AuthHeader />
-      <main className="content">{children}</main>
-      <Footer />
+      <main>{children}</main>
     </>
   );
 }
@@ -75,7 +85,7 @@ function MainLayout({ children }) {
   return (
     <>
       <MainHeader />
-      <main className="content">{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   );

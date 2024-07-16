@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faBox, faShoppingCart, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import SearchBar from '../molecules/SearchBar';
 
 const MainHeader = () => {
@@ -8,13 +10,25 @@ const MainHeader = () => {
       <div className="header-left">
         <h1>Farmacia Cristopher</h1>
       </div>
-      <SearchBar />
+      <div className="header-center">
+        <SearchBar />
+      </div>
       <nav>
-        <Link to="/home">Inicio</Link>
-        <Link to="/products">Productos</Link>
-        <Link to="/contact">Contacto</Link>
-        <Link to="/about">Nosotros</Link>
-        <Link to="/user">cuenta</Link>
+        <Link to="/home">
+          <FontAwesomeIcon icon={faHome} /> Inicio
+        </Link>
+        <Link to="/products">
+          <FontAwesomeIcon icon={faBox} /> Productos
+        </Link>
+        <Link to="/shopping_cart">
+          <FontAwesomeIcon icon={faShoppingCart} /> Carrito
+        </Link>
+        <Link to="/about">
+          <FontAwesomeIcon icon={faInfoCircle} /> Nosotros
+        </Link>
+        <Link to="/user">
+          <FontAwesomeIcon icon={faUser} /> Cuenta
+        </Link>
       </nav>
     </header>
   );

@@ -1,26 +1,29 @@
-/* styles.css */
-html, body, #root {
+html, body,main {
   height: 100%;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.app {
+#root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.content {
+.main-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
+
 /* Estilos para el body */
 body {
   font-family: Arial, sans-serif;
   background-color: #dadada;
   color: #333;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  height: 100%;
   margin: 0;
 }
 
@@ -367,6 +370,94 @@ body {
 }
 
 
+/* Estilos para contenedores de formulario */
+.form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Estilos para botones */
+.btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+/* Estilos para campos de entrada */
+.form-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+/* src/assets/styles.css */
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.admin-product-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-row label {
+  margin-bottom: 5px;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
 /* Estilos para footer */
 .footer {
   background-color: #007bff;
@@ -425,4 +516,33 @@ body {
 
 .footer-section p, .footer-section a {
   margin: 0;
+}
+
+/* Media queries para hacer el header responsivo */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .header nav {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
 }
