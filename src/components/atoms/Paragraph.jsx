@@ -1,7 +1,10 @@
+// src/components/atoms/Paragraph.jsx
 import React from 'react';
 
-const Paragraph = ({ children }) => {
-  return <p className="paragraph">{children}</p>;
+const Paragraph = ({ text }) => {
+  return (
+    <p>{text}</p>
+  );
 };
 
 export default Paragraph;

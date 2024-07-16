@@ -6,8 +6,6 @@ import UserPage from './pages/UserPage';
 import AuthHeader from './components/organisms/AuthHeader';
 import MainHeader from './components/organisms/MainHeader';
 import Footer from './components/organisms/Footer';
-import './assets/styles.css';
-
 
 // Simulación de autenticación
 const isAuthenticated = () => {
@@ -16,7 +14,7 @@ const isAuthenticated = () => {
 
 function App() {
   return (
-    <Router>
+    <div className="app">
       <Routes>
         <Route path="/login" element={<AuthLayout><LoginPage /></AuthLayout>} />
         <Route path="/register" element={<AuthLayout><RegisterPage /></AuthLayout>} />
@@ -51,6 +49,14 @@ function App() {
           }
         />
       </Routes>
+    </div>
+  );
+}
+
+function AppWrapper() {
+  return (
+    <Router>
+      <App />
     </Router>
   );
 }
@@ -59,7 +65,8 @@ function AuthLayout({ children }) {
   return (
     <>
       <AuthHeader />
-      <main className="main-content">{children}</main>
+      <main className="content">{children}</main>
+      <Footer />
     </>
   );
 }
@@ -68,10 +75,10 @@ function MainLayout({ children }) {
   return (
     <>
       <MainHeader />
-      <main className="main-content">{children}</main>
+      <main className="content">{children}</main>
       <Footer />
     </>
   );
 }
 
-export default App;
+export default AppWrapper;

@@ -1,16 +1,22 @@
 /* styles.css */
-
-/* Reset básico */
-* {
+html, body, #root {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
 /* Estilos para el body */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #dadada;
   color: #333;
   display: flex;
   flex-direction: column;
@@ -26,7 +32,6 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
-  width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
 }
@@ -112,65 +117,7 @@ body {
     margin-top: 10px;
   }
 }
-/* Estilos para footer */
 
-.footer {
-  background-color: #007bff;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  width: 100%;
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-left, .footer-right {
-  flex: 1;
-  margin: 10px;
-}
-
-.footer-left ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-left ul li {
-  margin: 5px 0;
-}
-
-.footer-right p {
-  margin: 5px 0;
-}
-
-.footer-note {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #d1ecf1;
-  text-align: center;
-  width: 100%;
-}
-
-.footer a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-.footer-section p, .footer-section a {
-  margin: 0;
-}
 
 /* Estilos para la página de inicio de sesión */
 .login-page, .register-page {
@@ -393,38 +340,89 @@ body {
 
 /* Estilo Info de Usuario */
 
-.user-summary {
+
+.user-page {
   padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  border-radius: 8px;
 }
 
-.title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.subtitle {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.paragraph {
-  font-size: 16px;
-  margin: 10px 0;
+.user-summary {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .user-info {
-  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.user-page {
+.card {
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos para footer */
+.footer {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
+.footer-left, .footer-right {
+  flex: 1;
+  margin: 10px;
+}
 
+.footer-left ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-left ul li {
+  margin: 5px 0;
+}
+
+.footer-right p {
+  margin: 5px 0;
+}
+
+.footer-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #d1ecf1;
+  text-align: center;
+  width: 100%;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-section p, .footer-section a {
+  margin: 0;
+}

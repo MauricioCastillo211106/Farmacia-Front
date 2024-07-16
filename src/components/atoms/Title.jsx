@@ -1,8 +1,9 @@
+// src/components/atoms/Title.jsx
 import React from 'react';
 
-const Title = ({ children }) => {
+const Title = ({ text }) => {
   return (
-    <h2 className="title">{children}</h2>
+    <h1>{text}</h1>
   );
 };
 

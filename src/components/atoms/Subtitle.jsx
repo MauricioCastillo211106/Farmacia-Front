@@ -1,8 +1,9 @@
+// src/components/atoms/Subtitle.jsx
 import React from 'react';
 
-const Subtitle = ({ children }) => {
+const Subtitle = ({ text }) => {
   return (
-    <h3 className="subtitle">{children}</h3>
+    <h2>{text}</h2>
   );
 };
 
