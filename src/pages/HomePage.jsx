@@ -1,7 +1,6 @@
 import React from 'react';
 import FeaturedProducts from '../components/molecules/FeaturedProducts';
 import HowToBuy from '../components/organisms/HowToBuy';
-import '../assets/styles.css';
 
 const HomePage = () => {
   return (

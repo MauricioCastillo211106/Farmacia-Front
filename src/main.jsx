@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AppWrapper from './App';
-import './assets/styles.css';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -2,7 +2,6 @@ import React from 'react';
 import TempraImage from '../../assets/Images/Tempra.png';
 import LoratadinaImage from '../../assets/Images/Loratadina.png';
 import Ibuprofeno from '../../assets/Images/Ibuprofeno.png';
-import '../../assets/styles.css';
 
 const FeaturedProducts = () => {
   return (
