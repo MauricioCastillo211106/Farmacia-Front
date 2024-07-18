@@ -8,6 +8,8 @@ import UserPage from './pages/UserPage';
 import AuthHeader from './components/organisms/AuthHeader';
 import MainHeader from './components/organisms/MainHeader';
 import Footer from './components/organisms/Footer';
+import AboutPage from './pages/AboutPage';
+
 import './assets/base.css';
 import './assets/header.css';
 import './assets/footer.css';
@@ -15,6 +17,9 @@ import './assets/login.css';
 import './assets/home.css';
 import './assets/user.css';
 import './assets/admin.css';
+import './assets/AboutPage.css';
+import './assets/AboutUsContent.css';
+import './assets/InfoSection.css';
 
 // Simulación de autenticación
 const isAuthenticated = () => {
@@ -47,16 +52,26 @@ function App() {
           )
         }
       />
-              <Route
-          path="/user"
-          element={
-            isAuthenticated() ? (
-              <MainLayout><UserPage /></MainLayout>
-            ) : (
-              <Navigate to="/login" />
-            )
-          }   
-          />
+      <Route
+        path="/user"
+        element={
+          isAuthenticated() ? (
+            <MainLayout><UserPage /></MainLayout>
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+      <Route
+        path="/about"
+        element={
+          isAuthenticated() ? (
+            <MainLayout><AboutPage /></MainLayout> // Agregar la nueva ruta
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
       <Route
         path="/"
         element={
