@@ -4,6 +4,7 @@
   color: white;
   padding: 20px 0;
   text-align: center;
+  z-index: 800;
   width: 100%;
   box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
   margin-top: auto; /* Asegura que el footer se mantenga en la parte inferior */

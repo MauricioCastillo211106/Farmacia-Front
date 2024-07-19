@@ -3,6 +3,7 @@
     background-color: #ffffff;
     padding: 10px 20px;
     display: flex;
+    z-index: 1000;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) => {
   return (
     <div className="login-form">
-      <h2>Login</h2>
+      <h2>Login Admin</h2>
       <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
         <div className="form-field">
           <label>Email:</label>
@@ -28,8 +27,8 @@ const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) 
         <button className="btn" type="submit">Login</button>
       </form>
       <div className="link-container">
-          <Link to="/register">Regístrate</Link>
-          <Link to="/loginAdmin">Iniciar como Admin</Link>
+          <Link to="/registerAdmin">Regístrate como admin</Link>
+          <Link to="/login">Iniciar como Usuario</Link>
         </div>
     </div>
   );

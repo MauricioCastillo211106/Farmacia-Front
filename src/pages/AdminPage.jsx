@@ -1,25 +1,18 @@
-// src/pages/AdminPage.jsx
 import React from 'react';
-import AdminForm from '../components/organisms/AdminForm';
+import AdminNavbar from '../components/organisms/AdminNavbar';
 import Sidebar from '../components/organisms/Sidebar';
-import Footer from '../components/organisms/Footer';
+import { Outlet } from 'react-router-dom';
 
 const AdminPage = () => {
   return (
-    <div className="admin-page">
-      <header className="header">Zona Administrativa</header>
-      <div className="admin-content">
+    <div className="admin-layout">
+      <AdminNavbar />
+      <div className="admin-main">
         <Sidebar />
-        <main className="admin-product-view">
-          <div className="form-container">
-            <AdminForm />
-          </div>
-          <div className="form-container">
-            <AdminForm />
-          </div>
-        </main>
+        <div className="admin-content">
+          <Outlet />
+        </div>
       </div>
-      <Footer />
     </div>
   );
 };

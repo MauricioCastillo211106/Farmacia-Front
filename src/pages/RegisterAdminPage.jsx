@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import RegisterForm from '../components/organisms/RegisterForm';
+import RegisterForm from '../components/organisms/RegisterFormAdmin';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const RegisterPage = () => {
       registeredUsers.push({ name, email, password });
       localStorage.setItem('users', JSON.stringify(registeredUsers));
       localStorage.setItem('auth', 'true');
-      navigate('/login');
+      navigate('/loginAdmin');
     }
   };
 

@@ -1,32 +1,32 @@
-// src/components/organisms/Sidebar.jsx
 import React from 'react';
-import SidebarItem from '../molecules/SidebarItem';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
+      <h2>Zona Administrativa</h2>
       <div className="sidebar-section">
-        <h2>Inventario</h2>
+        <h3>Inventario</h3>
         <ul>
-          <SidebarItem to="/admin/add-product" text="Agregar Producto" />
-          <SidebarItem to="/admin/delete-product" text="Eliminar Producto" />
-          <SidebarItem to="/admin/edit-product" text="Editar Producto" />
+          <li><Link to="add-product">Agregar Producto</Link></li>
+          <li><Link to="delete-product">Eliminar Producto</Link></li>
+          <li><Link to="edit-product">Editar Producto</Link></li>
         </ul>
       </div>
       <div className="sidebar-section">
-        <h2>Ventas</h2>
+        <h3>Ventas</h3>
         <ul>
-          <SidebarItem to="/admin/sales-history" text="Historial de Ventas" />
-          <SidebarItem to="/admin/daily-sales" text="Ventas del Día" />
-          <SidebarItem to="/admin/products-ending" text="Productos por Acabar" />
+          <li><Link to="#">Historial de Ventas</Link></li>
+          <li><Link to="#">Ventas del Día</Link></li>
+          <li><Link to="#">Productos por Acabar</Link></li>
         </ul>
       </div>
       <div className="sidebar-section">
-        <h2>Empleados</h2>
+        <h3>Empleados</h3>
         <ul>
-          <SidebarItem to="/admin/add-employee" text="Agregar Empleado" />
-          <SidebarItem to="/admin/delete-employee" text="Eliminar Empleado" />
-          <SidebarItem to="/admin/edit-employee" text="Editar Empleado" />
+          <li><Link to="#">Agregar Empleado</Link></li>
+          <li><Link to="#">Eliminar Empleado</Link></li>
+          <li><Link to="#">Editar Empleado</Link></li>
         </ul>
       </div>
     </div>
