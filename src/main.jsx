@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import ShoppingCartPage from './pages/ShoppingCartPage';
 import LoginPage from './pages/LoginPage';
 import LoginAdminPage from './pages/LoginAdminPage';
 import RegisterPage from './pages/RegisterPage';
@@ -16,6 +17,7 @@ import MainHeader from './components/organisms/MainHeader';
 import Footer from './components/organisms/Footer';
 import AdminNavbar from './components/organisms/AdminNavbar';
 import Sidebar from './components/organisms/Sidebar';
+import ProductDescriptionPage from './pages/ProductDescriptionPage';
 import './assets/base.css';
 import './assets/AdminNavbar.css';
 import './assets/header.css';
@@ -27,6 +29,8 @@ import './assets/admin.css';
 import './assets/AboutPage.css';
 import './assets/AboutUsContent.css';
 import './assets/InfoSection.css';
+import './assets/shoppingCartPage.css';
+import './assets/ProductDescriptionPage.css';
 
 // Simulación de autenticación
 const isAuthenticated = () => {
@@ -120,10 +124,30 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         }
       />
       <Route
+        path="/cart"
+        element={
+          isAuthenticated() ? (
+            <MainLayout><ShoppingCartPage /></MainLayout>
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+      <Route
         path="/"
         element={
           isAuthenticated() ? (
             <Navigate to="/home" />
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+            <Route
+        path="/product/*"
+        element={
+          isAuthenticated() ? (
+            <MainLayout><ProductDescriptionPage /></MainLayout>
           ) : (
             <Navigate to="/login" />
           )

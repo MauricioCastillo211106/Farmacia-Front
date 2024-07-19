@@ -13,20 +13,14 @@
 
 .featured-products-container {
   background-color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   margin: 0 auto;
   padding: 20px;
   max-width: 1200px; /* Ajusta esto según el tamaño deseado */
   box-sizing: border-box;
-  flex-wrap: wrap; /* Para permitir el ajuste en pantallas más pequeñas */
 }
 
 .featured-product-card {
-  flex: 1;
-  margin: 10px;
   max-width: 300px; /* Ajusta esto según el tamaño deseado */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra */
   border-radius: 10px; /* Añade borde redondeado */
@@ -34,6 +28,7 @@
   transition: transform 0.3s, box-shadow 0.3s; /* Transición para sombra y escala */
   text-align: center; /* Centra el texto */
   padding: 10px; /* Añade relleno */
+  margin: auto;
 }
 
 .featured-product-card img {
@@ -58,6 +53,7 @@
   color: #555; /* Color de texto gris */
 }
 
+/* Resto de estilos */
 .how-to-buy {
   text-align: center;
   margin: 40px 0;

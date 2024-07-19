@@ -13,14 +13,14 @@ const MainHeader = () => {
       <div className="header-center">
         <SearchBar />
       </div>
-      <nav>
+      <nav className="nav-links">
         <Link to="/home">
           <FontAwesomeIcon icon={faHome} /> Inicio
         </Link>
         <Link to="/products">
           <FontAwesomeIcon icon={faBox} /> Productos
         </Link>
-        <Link to="/shopping_cart">
+        <Link to="/cart">
           <FontAwesomeIcon icon={faShoppingCart} /> Carrito
         </Link>
         <Link to="/about">
