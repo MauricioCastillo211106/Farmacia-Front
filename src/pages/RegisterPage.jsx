@@ -13,11 +13,14 @@ const RegisterPage = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
+    // Datos del formulario más valores fijos
     const raw = JSON.stringify({
-      email: email,
       full_name: name,
+      email: email,  // Incluye el email si es necesario en el backend
       password: password,
-      created_by: "admin"
+      salary: 5000,  // Valor fijo o ajustable según la lógica
+      position: "Master",  // Valor fijo o ajustable según la lógica
+      created_by: "Master" // Asume un valor fijo para created_by
     });
 
     const requestOptions = {
@@ -27,7 +30,7 @@ const RegisterPage = () => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/client/signUp", requestOptions)
+    fetch("http://localhost:3000/api/employee/create", requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error en el registro');
@@ -36,7 +39,7 @@ const RegisterPage = () => {
       })
       .then((result) => {
         console.log(result);
-        localStorage.setItem('auth', 'true'); // Esto depende de cómo manejes la autenticación
+        localStorage.setItem('auth', 'true'); // Configura la autenticación según tu lógica
         navigate('/login');
       })
       .catch((error) => {

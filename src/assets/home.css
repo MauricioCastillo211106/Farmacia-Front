@@ -9,49 +9,108 @@
   flex-grow: 1;
   justify-content: flex-start;
   padding-top: 20px;
+  background-color: #f4f4f4; /* Color de fondo suave */
 }
-
 .featured-products-container {
   background-color: #ffffff;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   padding: 20px;
-  max-width: 1200px; /* Ajusta esto según el tamaño deseado */
+  max-width: 1000px;
   box-sizing: border-box;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .featured-product-card {
-  max-width: 300px; /* Ajusta esto según el tamaño deseado */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade sombra */
-  border-radius: 10px; /* Añade borde redondeado */
-  overflow: hidden; /* Asegura que el contenido no sobresalga */
-  transition: transform 0.3s, box-shadow 0.3s; /* Transición para sombra y escala */
-  text-align: center; /* Centra el texto */
-  padding: 10px; /* Añade relleno */
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Asegura que la tarjeta ocupe todo el espacio disponible */
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  padding: 15px;
+  margin: 15px auto;
+  background-color: #fff;
 }
 
 .featured-product-card img {
-  width: 100%;
+  max-width: 25%;
   height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto; /* Centra horizontalmente */
 }
 
 .featured-product-card:hover {
-  transform: scale(1.05); /* Efecto de hover para aumentar la escala */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada en hover */
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .featured-product-title {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: bold;
   margin-top: 10px;
 }
 
 .featured-product-description {
-  font-size: 0.9em;
+  font-size: 1em;
   margin-top: 5px;
-  color: #555; /* Color de texto gris */
+  color: #666;
 }
+/* Estilos para los botones de flecha del carrusel */
+.slick-arrow {
+  background-color: gray; /* Color de fondo para visibilidad */
+  border-radius: 50%; /* Forma circular */
+  padding: 10px; /* Espaciado interno */
+  width: 40px; /* Ancho fijo */
+  height: 40px; /* Altura fija */
+  display: flex; /* Flexbox para centrar contenido */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  opacity: 0.8; /* Transparencia ligera */
+  transition: background-color 0.3s, opacity 0.3s; /* Transiciones suaves */
+  z-index: 2; /* Asegura que estén por encima de otros elementos */
+}
+
+.slick-arrow::before {
+  color: white; /* Color del icono de la flecha */
+  font-size: 20px; /* Tamaño del icono */
+}
+
+.slick-arrow:hover {
+  background-color: darkgray; /* Cambia de color al pasar el mouse */
+  opacity: 1; /* Aumenta la opacidad al pasar el mouse */
+}
+
+.slick-next {
+  right: 10px; /* Posición derecha */
+}
+
+.slick-prev {
+  left: 10px; /* Posición izquierda */
+}
+
+/* Estilos para los botones del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: gray; /* Cambia el color de los iconos */
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: darkgray;
+}
+
+
 
 /* Resto de estilos */
 .how-to-buy {
@@ -106,7 +165,7 @@
 
 .step-description {
   font-size: 1em;
-  color: #666666;
+  color: #666;
 }
 
 .section-divider {

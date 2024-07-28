@@ -9,16 +9,42 @@ const LoginPage = () => {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
-    const user = registeredUsers.find(u => u.email === email && u.password === password);
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    if (user) {
-      localStorage.setItem('auth', 'true');
-      localStorage.setItem('user', JSON.stringify(user));
-      navigate('/admin/*');
-    } else {
-      setError('Credenciales inválidas');
-    }
+    // Construir la carga de la solicitud con los datos del formulario y valores fijos
+    const raw = JSON.stringify({
+      full_name: email,  // Si se requiere el nombre completo
+      password: password,
+      // Puedes agregar otros campos fijos aquí si es necesario
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    fetch("http://localhost:3000/api/employee/login", requestOptions)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error en el inicio de sesión');
+        }
+        return response.json();
+      })
+      .then((result) => {
+        console.log(result);
+        // Guarda el token y otros detalles del usuario si es necesario
+        localStorage.setItem('auth', 'true'); // Esto puede variar según tu manejo de autenticación
+        localStorage.setItem('user', JSON.stringify(result.user)); // Guarda detalles del usuario si es necesario
+        localStorage.setItem('token', result.token); // Guarda el token
+        navigate('/admin/*');
+      })
+      .catch((error) => {
+        console.error(error);
+        setError('Credenciales inválidas');
+      });
   };
 
   return (

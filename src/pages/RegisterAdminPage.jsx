@@ -10,15 +10,41 @@ const RegisterPage = () => {
   const [error, setError] = useState('');
 
   const handleRegister = () => {
-    const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
-    if (registeredUsers.some(u => u.email === email)) {
-      setError('El correo electrónico ya está registrado');
-    } else {
-      registeredUsers.push({ name, email, password });
-      localStorage.setItem('users', JSON.stringify(registeredUsers));
-      localStorage.setItem('auth', 'true');
-      navigate('/loginAdmin');
-    }
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    // Construir la carga de la solicitud con los datos del formulario y valores fijos
+    const raw = JSON.stringify({
+      full_name: name,
+      email: email,
+      password: password,
+      // Agregar campos adicionales según sea necesario
+      created_by: "admin"
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow"
+    };
+
+    fetch("http://localhost:3000/api/employee/create", requestOptions)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error en el registro');
+        }
+        return response.json();
+      })
+      .then((result) => {
+        console.log(result);
+        localStorage.setItem('auth', 'true');
+        navigate('/loginAdmin');
+      })
+      .catch((error) => {
+        console.error(error);
+        setError('Error en el registro');
+      });
   };
 
   return (
