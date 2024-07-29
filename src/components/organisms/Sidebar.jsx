@@ -34,8 +34,8 @@ const Sidebar = () => {
         <h3>Empleados</h3>
         <ul>
           <li><Link to="/admin/add-employee">Agregar Empleado</Link></li>
-          <li><Link to="#">Eliminar Empleado</Link></li>
-          <li><Link to="#">Editar Empleado</Link></li>
+          <li><Link to="/admin/delete-employee">Eliminar Empleado</Link></li>
+          <li><Link to="/admin/edit-employee">Editar Empleado</Link></li>
         </ul>
       </div>
       <div className="sidebar-section">
