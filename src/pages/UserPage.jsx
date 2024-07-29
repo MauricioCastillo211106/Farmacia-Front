@@ -1,19 +1,23 @@
 // src/pages/UserPage.jsx
 import React, { useEffect, useState } from 'react';
+import { jwtDecode } from "jwt-decode";
 import UserSummary from '../components/organisms/UserSummary';
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Simulación de una llamada a la API para obtener la información del usuario
-    const storedUser = JSON.parse(localStorage.getItem('user')) || {
-      name: 'Nombre del usuario',
-      email: 'asd@gmail.com',
-      orders: []
-    };
-    setUser(storedUser);
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const decodedToken = jwtDecode(token);
+        setUser(decodedToken);
+      } catch (error) {
+        console.error('Error al decodificar el token', error);
+      }
+    }
   }, []);
+  
 
   return (
     <div className="user-page">

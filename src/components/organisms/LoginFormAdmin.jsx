@@ -6,9 +6,9 @@ const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) 
       <h2>Login Admin</h2>
       <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
         <div className="form-field">
-          <label>Email:</label>
+          <label>Nombre:</label>
           <input 
-            type="email" 
+            type="name" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
             required 

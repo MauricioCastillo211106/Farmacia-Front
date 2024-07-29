@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FeaturedProducts from '../components/molecules/FeaturedProducts';
 import HowToBuy from '../components/organisms/HowToBuy';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -19,7 +21,17 @@ const HomePage = () => {
       };
 
       fetch("http://localhost:3000/api/product/", requestOptions)
-        .then((response) => response.json())
+        .then(response => {
+          if (!response.ok) {
+            if (response.status === 401) {
+              alert('Unauthorized: Please check your token');
+              navigate('/login');
+              return;
+            }
+            throw new Error('An error occurred while fetching data');
+          }
+          return response.json();
+        })
         .then((result) => {
           setProducts(result.slice(0, 3));
         })
@@ -27,7 +39,7 @@ const HomePage = () => {
     } else {
       console.error("Token no encontrado");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="home-page">

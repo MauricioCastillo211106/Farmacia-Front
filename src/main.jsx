@@ -18,6 +18,7 @@ import Footer from './components/organisms/Footer';
 import AdminNavbar from './components/organisms/AdminNavbar';
 import Sidebar from './components/organisms/Sidebar';
 import ProductDescriptionPage from './pages/ProductDescriptionPage';
+import ProductPage from './pages/ProductsPage';
 import './assets/base.css';
 import './assets/AdminNavbar.css';
 import './assets/header.css';
@@ -31,6 +32,9 @@ import './assets/AboutUsContent.css';
 import './assets/InfoSection.css';
 import './assets/shoppingCartPage.css';
 import './assets/ProductDescriptionPage.css';
+import './assets/ProductsPage.css'
+import './assets/ProductCard.css';
+
 
 // Simulación de autenticación
 const isAuthenticated = () => {
@@ -103,6 +107,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           )
         }
       />
+          <Route
+      path="/products"
+      element={
+        isAuthenticated() ? (
+          <MainLayout><ProductPage /></MainLayout>
+        ) : (
+          <Navigate to="/login" />
+        )
+      }
+    />
       <Route
         path="/user"
         element={

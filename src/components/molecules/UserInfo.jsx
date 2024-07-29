@@ -10,7 +10,7 @@ const UserInfo = ({ user }) => {
   return (
 <div className="user-info card">
       <Title>Resumen de Mi cuenta</Title>
-      <Subtitle>¡Hola!, {user.name}</Subtitle>
+      <Subtitle>¡Hola!, {user.full_name}</Subtitle>
       <Paragraph>Correo vinculado: {user.email}</Paragraph>
       <Paragraph>Contraseña: ********</Paragraph>
       <Paragraph>Historial de pedidos: {hasOrders ? user.orders.join(', ') : 'No orders yet'}</Paragraph>
