@@ -25,9 +25,9 @@ const Sidebar = () => {
       <div className="sidebar-section">
         <h3>Ventas</h3>
         <ul>
-          <li><Link to="#">Historial de Ventas</Link></li>
-          <li><Link to="#">Ventas del Día</Link></li>
-          <li><Link to="#">Productos por Acabar</Link></li>
+          <li><Link to="/admin/view-all-sales">Historial de Ventas</Link></li>
+          <li><Link to="/admin/view-individual-sale">Ventas Individuales</Link></li>
+           {/*<li><Link to="#">Productos por Acabar</Link></li>*/}
         </ul>
       </div>
       <div className="sidebar-section">

@@ -15,6 +15,8 @@ import EditProductForm from './components/organisms/EditProductForm';
 import AddEmployeeForm from './components/organisms/AddEmployeeForm';
 import DeleteEmployeeForm from './components/organisms/DeleteEmployeeForm';
 import EditEmployeeForm from './components/organisms/EditEmployeeForm';
+import SalesViewAll from './components/organisms/SalesOrganism';
+import SalesViewindividual from './components/organisms/SaleDetailOrganism';
 import AuthHeader from './components/organisms/AuthHeader';
 import MainHeader from './components/organisms/MainHeader';
 import Footer from './components/organisms/Footer';
@@ -37,6 +39,7 @@ import './assets/shoppingCartPage.css';
 import './assets/ProductDescriptionPage.css';
 import './assets/ProductsPage.css'
 import './assets/ProductCard.css';
+import './assets/SalesPage.css';
 
 
 // Simulación de autenticación
@@ -105,6 +108,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="add-employee" element={<AddEmployeeForm />} />
                 <Route path="delete-employee" element={<DeleteEmployeeForm />} />
                 <Route path="edit-employee" element={<EditEmployeeForm />} />
+                <Route path="view-all-sales" element={<SalesViewAll />} />
+                <Route path="view-individual-sale" element={<SalesViewindividual />} />
                 <Route path="*" element={<AddProductForm />} /> {/* Default route */}
               </Routes>
             </AdminLayout>
