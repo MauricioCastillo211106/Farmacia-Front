@@ -17,9 +17,9 @@ const Sidebar = () => {
       <div className="sidebar-section">
         <h3>Inventario</h3>
         <ul>
-          <li><Link to="/add-product">Agregar Producto</Link></li>
-          <li><Link to="/delete-product">Eliminar Producto</Link></li>
-          <li><Link to="/edit-product">Editar Producto</Link></li>
+          <li><Link to="/admin/add-product">Agregar Producto</Link></li>
+          <li><Link to="/admin/delete-product">Eliminar Producto</Link></li>
+          <li><Link to="/admin/edit-product">Editar Producto</Link></li>
         </ul>
       </div>
       <div className="sidebar-section">
@@ -33,7 +33,7 @@ const Sidebar = () => {
       <div className="sidebar-section">
         <h3>Empleados</h3>
         <ul>
-          <li><Link to="#">Agregar Empleado</Link></li>
+          <li><Link to="/admin/add-employee">Agregar Empleado</Link></li>
           <li><Link to="#">Eliminar Empleado</Link></li>
           <li><Link to="#">Editar Empleado</Link></li>
         </ul>

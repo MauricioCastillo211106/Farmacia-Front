@@ -12,6 +12,7 @@ import AboutPage from './pages/AboutPage';
 import AddProductForm from './components/organisms/AddProductForm';
 import DeleteProductForm from './components/organisms/DeleteProductForm';
 import EditProductForm from './components/organisms/EditProductForm';
+import AddEmployeeForm from './components/organisms/AddEmployeeForm';
 import AuthHeader from './components/organisms/AuthHeader';
 import MainHeader from './components/organisms/MainHeader';
 import Footer from './components/organisms/Footer';
@@ -99,6 +100,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path="add-product" element={<AddProductForm />} />
                 <Route path="delete-product" element={<DeleteProductForm />} />
                 <Route path="edit-product" element={<EditProductForm />} />
+                <Route path="add-employee" element={<AddEmployeeForm />} />
                 <Route path="*" element={<AddProductForm />} /> {/* Default route */}
               </Routes>
             </AdminLayout>
