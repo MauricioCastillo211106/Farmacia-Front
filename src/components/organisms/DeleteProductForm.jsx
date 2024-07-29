@@ -33,7 +33,7 @@ const DeleteProductForm = () => {
       redirect: "follow"
     };
 
-    fetch(`http://localhost:3000/api/product/${productId}`, requestOptions)
+    fetch(`https://farmacia-cris-backend.onrender.com/api/product/${productId}`, requestOptions)
       .then(response => {
         if (!response.ok) {
           if (response.status === 401) {

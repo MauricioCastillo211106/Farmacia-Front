@@ -33,7 +33,7 @@ const DeleteEmployeeForm = () => {
       redirect: "follow"
     };
 
-    fetch(`http://localhost:3000/api/employee/delete/${employeeId}`, requestOptions)
+    fetch(`https://farmacia-cris-backend.onrender.com/api/employee/delete/${employeeId}`, requestOptions)
       .then(response => {
         if (!response.ok) {
           if (response.status === 401) {

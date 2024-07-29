@@ -19,7 +19,7 @@ const SalesPage = () => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/sale/", requestOptions)
+    fetch("https://farmacia-cris-backend.onrender.com/api/sale/", requestOptions)
       .then(response => {
         if (!response.ok) {
           if (response.status === 401) {

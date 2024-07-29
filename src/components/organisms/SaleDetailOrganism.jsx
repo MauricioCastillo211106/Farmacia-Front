@@ -35,7 +35,7 @@ const SaleDetailPage = () => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
 
-    fetch(`http://localhost:3000/api/sale/${saleId}`, {
+    fetch(`https://farmacia-cris-backend.onrender.com/api/sale/${saleId}`, {
       method: "GET",
       headers: myHeaders,
     })

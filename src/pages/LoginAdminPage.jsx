@@ -26,7 +26,7 @@ const LoginPage = () => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/employee/login", requestOptions)
+    fetch("https://farmacia-cris-backend.onrender.com/api/employee/login", requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error en el inicio de sesión');

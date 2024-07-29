@@ -62,7 +62,7 @@ const EditProductForm = () => {
     formdata.append("created_by", "jose"); // Ajustar según sea necesario
     formdata.append("updated_by", "jose"); // Ajustar según sea necesario
 
-    fetch(`http://localhost:3000/api/product/${productId}`, {
+    fetch(`https://farmacia-cris-backend.onrender.com/api/product/${productId}`, {
       method: "PUT",
       headers: myHeaders,
       body: formdata,

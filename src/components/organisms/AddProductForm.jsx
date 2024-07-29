@@ -54,7 +54,7 @@ const AddProductForm = () => {
     formdata.append("uso", uso);
     formdata.append("created_by", createdBy); // Asegúrate de incluir este campo
 
-    fetch("http://localhost:3000/api/product/", {
+    fetch("https://farmacia-cris-backend.onrender.com/api/product/", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`

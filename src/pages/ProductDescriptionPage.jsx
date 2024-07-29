@@ -38,7 +38,7 @@ const ProductDescriptionPage = () => {
     myHeaders.append("Authorization", `Bearer ${token}`);
 
     // Verificar si ya existe un carrito para el usuario
-    fetch(`http://localhost:3000/api/cart/`, {
+    fetch(`https://farmacia-cris-backend.onrender.com/api/cart/`, {
       method: "GET",
       headers: myHeaders,
       redirect: "follow"
@@ -55,7 +55,7 @@ const ProductDescriptionPage = () => {
     .catch(error => console.error('Error checking cart:', error));
 
     // Obtener detalles del producto
-    fetch(`http://localhost:3000/api/product/${id}`, {
+    fetch(`https://farmacia-cris-backend.onrender.com/api/product/${id}`, {
       method: "GET",
       headers: myHeaders,
       redirect: "follow"
@@ -105,7 +105,7 @@ const ProductDescriptionPage = () => {
 
       console.log("Creando carrito con datos:", rawCart);
 
-      fetch("http://localhost:3000/api/cart", {
+      fetch("https://farmacia-cris-backend.onrender.com/api/cart", {
         method: "POST",
         headers: myHeaders,
         body: rawCart,
@@ -135,7 +135,7 @@ const ProductDescriptionPage = () => {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${token}`);
     
-    fetch(`http://localhost:3000/api/cart/`, {
+    fetch(`https://farmacia-cris-backend.onrender.com/api/cart/`, {
       method: "GET",
       headers: myHeaders,
       redirect: "follow"
@@ -170,7 +170,7 @@ const ProductDescriptionPage = () => {
       price: parseFloat(product.price)
     });
 
-    fetch("http://localhost:3000/api/cartItem/", {
+    fetch("https://farmacia-cris-backend.onrender.com/api/cartItem/", {
       method: "POST",
       headers: myHeaders,
       body: rawItem,

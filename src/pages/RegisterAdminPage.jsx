@@ -29,7 +29,7 @@ const RegisterPage = () => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/employee/create", requestOptions)
+    fetch("https://farmacia-cris-backend.onrender.com/api/employee/create", requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Error en el registro');

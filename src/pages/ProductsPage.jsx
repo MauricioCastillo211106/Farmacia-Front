@@ -18,7 +18,7 @@ const ProductsPage = () => {
       redirect: "follow"
     };
 
-    fetch("http://localhost:3000/api/product/", requestOptions)
+    fetch("https://farmacia-cris-backend.onrender.com/api/product/", requestOptions)
       .then(response => {
         if (!response.ok) {
           if (response.status === 401) {
