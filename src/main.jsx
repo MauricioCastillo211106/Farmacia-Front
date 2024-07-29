@@ -169,7 +169,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         }
       />
             <Route
-        path="/product/*"
+        path="/product/:id"
         element={
           isAuthenticated() ? (
             <MainLayout><ProductDescriptionPage /></MainLayout>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importar useNavigate
+import { useNavigate, Link } from 'react-router-dom'; // Importar useNavigate y Link
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -62,6 +62,7 @@ const ProductsPage = () => {
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>Precio: {product.price}</p>
+            <Link to={`/product/${product.id}`}>Ver detalles</Link>
           </div>
         ))}
       </div>
