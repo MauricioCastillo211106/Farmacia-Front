@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import Title from '../atoms/Title';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
@@ -16,7 +17,9 @@ const AddProductForm = () => {
   const [caducity, setCaducity] = useState('');
   const [dose, setDose] = useState('');
   const [uso, setUso] = useState('');
-  const [createdBy, setCreatedBy] = useState('jose'); // Example value
+  const [createdBy, setCreatedBy] = useState('jose'); // Ejemplo de valor
+
+  const navigate = useNavigate(); // Hook para navegar
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -31,6 +34,7 @@ const AddProductForm = () => {
     const token = localStorage.getItem('token');
     if (!token) {
       alert('Error: Usuario no autenticado');
+      navigate('/login');
       return;
     }
 
@@ -40,7 +44,7 @@ const AddProductForm = () => {
     formdata.append("price", productPrice);
     formdata.append("description", productDescription);
     if (productImage) {
-      formdata.append("image", productImage); // Sending file directly
+      formdata.append("image", productImage); // Enviar el archivo directamente
     }
     formdata.append("type", productCategory);
     formdata.append("formula", formula);
@@ -48,7 +52,7 @@ const AddProductForm = () => {
     formdata.append("caducity", caducity);
     formdata.append("dose", dose);
     formdata.append("uso", uso);
-    formdata.append("created_by", createdBy); // Ensure this field is included
+    formdata.append("created_by", createdBy); // Asegúrate de incluir este campo
 
     fetch("http://localhost:3000/api/product/", {
       method: "POST",
@@ -60,6 +64,11 @@ const AddProductForm = () => {
     })
       .then(response => {
         if (!response.ok) {
+          if (response.status === 401) {
+            alert('Unauthorized: Please check your token');
+            navigate('/login');
+            return;
+          }
           return response.text().then(text => { throw new Error(text); });
         }
         return response.json();
