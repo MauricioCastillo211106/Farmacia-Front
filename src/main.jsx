@@ -40,7 +40,23 @@ import './assets/ProductDescriptionPage.css';
 import './assets/ProductsPage.css'
 import './assets/ProductCard.css';
 import './assets/SalesPage.css';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCaE29Bl-LfDviw-8T6REkkTESeEAL_drg",
+  authDomain: "farmacia-cristopher.firebaseapp.com",
+  projectId: "farmacia-cristopher",
+  storageBucket: "farmacia-cristopher.appspot.com",
+  messagingSenderId: "994391556985",
+  appId: "1:994391556985:web:c7ec583287c3249afca5a8"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 // Simulación de autenticación
 const isAuthenticated = () => {
