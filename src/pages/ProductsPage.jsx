@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom'; // Importar useNavigate y Link
+import { useNavigate, Link } from 'react-router-dom'; 
 
+const url = import.meta.env.VITE_URL_API;
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Inicializar useNavigate
+  const [token, settoken] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('token'); // Obtener el token almacenado
+     settoken(localStorage.getItem('token'));
     const myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${token}`);
+    //myHeaders.append("Authorization", `Bearer ${token}`);
 
     const requestOptions = {
       method: "GET",
@@ -18,7 +20,7 @@ const ProductsPage = () => {
       redirect: "follow"
     };
 
-    fetch("https://farmacia-cris-backend.onrender.com/api/product/", requestOptions)
+    fetch(`${url}product/client`, requestOptions)
       .then(response => {
         if (!response.ok) {
           if (response.status === 401) {
@@ -61,8 +63,8 @@ const ProductsPage = () => {
             <img src={product.url} alt={product.name} />
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <p>Precio: {product.price}</p>
-            <Link to={`/product/${product.id}`}>Ver detalles</Link>
+            <p>Precio: ${product.price}</p>
+            {token != null?(<Link to={`/product/${product.id}`}>Ver detalles</Link>):null}
           </div>
         ))}
       </div>

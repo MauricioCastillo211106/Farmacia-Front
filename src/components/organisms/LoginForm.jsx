@@ -7,7 +7,7 @@ const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) 
       <h2>Login</h2>
       <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
         <div className="form-field">
-          <label>FullName:</label>
+          <label>Correo:</label>
           <input 
             type="name" 
             value={email} 
@@ -29,7 +29,7 @@ const LoginForm = ({ email, setEmail, password, setPassword, onSubmit, error }) 
       </form>
       <div className="link-container">
           <Link to="/register">Regístrate</Link>
-          <Link to="/loginAdmin">Iniciar como Admin</Link>
+          <Link to="/loginAdmin">Iniciar como Empleado</Link>
         </div>
     </div>
   );

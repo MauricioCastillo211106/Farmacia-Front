@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../components/organisms/LoginFormAdmin';
 
+const url = import.meta.env.VITE_URL_API;
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    // Construir la carga de la solicitud con los datos del formulario y valores fijos
     const raw = JSON.stringify({
-      full_name: email,  // Si se requiere el nombre completo
+      email: email,
       password: password,
-      // Puedes agregar otros campos fijos aquí si es necesario
     });
 
     const requestOptions = {
@@ -26,25 +26,22 @@ const LoginPage = () => {
       redirect: "follow"
     };
 
-    fetch("https://farmacia-cris-backend.onrender.com/api/employee/login", requestOptions)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error en el inicio de sesión');
-        }
-        return response.json();
-      })
-      .then((result) => {
-        console.log(result);
-        // Guarda el token y otros detalles del usuario si es necesario
-        localStorage.setItem('auth', 'true'); // Esto puede variar según tu manejo de autenticación
-        localStorage.setItem('user', JSON.stringify(result.user)); // Guarda detalles del usuario si es necesario
-        localStorage.setItem('token', result.token); // Guarda el token
-        navigate('/admin/*');
-      })
-      .catch((error) => {
-        console.error(error);
-        setError('Credenciales inválidas');
-      });
+    try {
+      const response = await fetch(`${url}employee/login`, requestOptions);
+      if (!response.ok) {
+        throw new Error('Error en el inicio de sesión');
+      }
+      const result = await response.json();
+
+      localStorage.setItem('auth', 'true'); 
+      localStorage.setItem('user', email); 
+      localStorage.setItem('token', result.token); 
+      localStorage.setItem('rol', result.rol);
+      navigate('/admin/add-product', { replace: true });
+    } catch (error) {
+      console.error("Error en el inicio de sesión:", error);
+      setError('Credenciales inválidas');
+    }
   };
 
   return (

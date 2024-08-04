@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SaleCard from '../atoms/SaleCard'; 
+import VoucherCar from "../atoms/Voucher"
 
 const url = import.meta.env.VITE_URL_API;
-const SalesPage = () => {
+const Voucher = () => {
   const [sales, setSales] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,7 +21,7 @@ const SalesPage = () => {
       redirect: "follow"
     };
 
-    fetch(`${url}sale/`, requestOptions)
+    fetch(`${url}voucher/`, requestOptions)
       .then(response => {
         if (!response.ok) {
           if (response.status === 401) {
@@ -54,18 +55,18 @@ const SalesPage = () => {
 
   return (
     <div>
-      <h1>Ventas</h1>
+      <h1>Vouchers</h1>
       <div className="sales-grid">
         {sales.map(sale => (
-          <SaleCard 
-            key={sale.sale_id}
-            saleId={sale.sale_id} 
+          <VoucherCar 
+            key={sale.id}
+            saleId={sale.id} 
             date={sale.created_at} 
-            clientId={sale.client_id}
-            nameClient={sale.client_name} 
-            employeeId={sale.employee_id}
+            clientId={sale.id_cart}
+            nameClient={sale.status} 
+            employeeId={sale.sale_id}
             nameEmployee={sale.employee_name}
-            totalPrice={sale.total_price} 
+            totalPrice={sale.quantity} 
           />
         ))}
       </div>
@@ -73,4 +74,4 @@ const SalesPage = () => {
   );
 };
 
-export default SalesPage;
+export default Voucher;

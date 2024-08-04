@@ -1,14 +1,18 @@
 /* Estilo para la página de ventas */
 .sales-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Tres columnas iguales */
+    grid-template-columns: repeat(4, 1fr); /* Tres columnas iguales */
     gap: 20px;
     padding: 20px;
     background-color: #f8f9fa;
     max-width: 1200px; /* Ajustar el contenedor al ancho máximo deseado */
     margin: 0 auto; /* Centrar el contenedor en la página */
   }
-  
+  #one div{
+    display: grid;
+    text-align: justify;
+    justify-content: center;
+  }
   /* Estilo para cada tarjeta de venta */
   .sale-card {
     background-color: #fff;

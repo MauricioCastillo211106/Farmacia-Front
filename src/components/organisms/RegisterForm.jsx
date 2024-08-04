@@ -45,7 +45,7 @@ const RegisterForm = ({ name, setName, email, setEmail, password, setPassword, o
       </form>
       <div className="link-container">
           <Link to="/login">Iniciar Sesión</Link>
-          <Link to="/registerAdmin">Registrarse como admin</Link>
+          <Link to="/registerAdmin">Registrarse como Empleado</Link>
         </div>
     </div>
   );

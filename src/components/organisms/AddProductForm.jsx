@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom';
 import Title from '../atoms/Title';
 import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 import Label from '../atoms/Label';
-
+const url = import.meta.env.VITE_URL_API;
 const AddProductForm = () => {
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');
@@ -44,7 +44,7 @@ const AddProductForm = () => {
     formdata.append("price", productPrice);
     formdata.append("description", productDescription);
     if (productImage) {
-      formdata.append("image", productImage); // Enviar el archivo directamente
+      formdata.append("img", productImage); // Enviar el archivo directamente
     }
     formdata.append("type", productCategory);
     formdata.append("formula", formula);
@@ -54,7 +54,7 @@ const AddProductForm = () => {
     formdata.append("uso", uso);
     formdata.append("created_by", createdBy); // Asegúrate de incluir este campo
 
-    fetch("https://farmacia-cris-backend.onrender.com/api/product/", {
+    fetch(`${url}product/`, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`

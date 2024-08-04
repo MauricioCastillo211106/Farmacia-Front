@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
-import Title from '../atoms/Title';
-import Input from '../atoms/Input';
-import Button from '../atoms/Button';
-import Label from '../atoms/Label';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Title from "../atoms/Title";
+import Input from "../atoms/Input";
+import Button from "../atoms/Button";
+import Label from "../atoms/Label";
 
+const url = import.meta.env.VITE_URL_API;
 const AddEmployeeForm = () => {
-  const [fullName, setFullName] = useState('');
-  const [password, setPassword] = useState('');
-  const [salary, setSalary] = useState('');
-  const [position, setPosition] = useState('');
-  const [createdBy, setCreatedBy] = useState('Master'); // Ejemplo de valor
+  const [fullName, setFullName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("")
+  const [salary, setSalary] = useState("");
+  const [position, setPosition] = useState("");
+  const [createdBy, setCreatedBy] = useState(localStorage.getItem("user"));
 
-  const navigate = useNavigate(); // Hook para navegar
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
-      alert('Error: Usuario no autenticado');
-      navigate('/login');
+      alert("Error: Usuario no autenticado");
+      navigate("/login");
       return;
     }
 
@@ -31,36 +33,39 @@ const AddEmployeeForm = () => {
     const raw = JSON.stringify({
       full_name: fullName,
       password: password,
-      salary: parseFloat(salary), // Asegurarse de que sea un número
+      email:email,
+      salary: parseFloat(salary),
       position: position,
-      created_by: createdBy
+      created_by: createdBy,
     });
 
     const requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
-      redirect: "follow"
+      redirect: "follow",
     };
 
-    fetch("https://farmacia-cris-backend.onrender.com/api/employee/create", requestOptions)
-      .then(response => {
+    fetch(`${url}employee/create`, requestOptions)
+      .then((response) => {
         if (!response.ok) {
           if (response.status === 401) {
-            alert('Unauthorized: Please check your token');
-            navigate('/login');
+            alert("Unauthorized: Please check your token");
+            navigate("/login");
             return;
           }
-          return response.text().then(text => { throw new Error(text); });
+          return response.text().then((text) => {
+            throw new Error(text);
+          });
         }
         return response.json();
       })
       .then((result) => {
-        alert('Empleado agregado con éxito');
+        alert("Empleado agregado con éxito");
         console.log(result);
       })
-      .catch(error => {
-        alert('Error al agregar el empleado: ' + error.message);
+      .catch((error) => {
+        alert("Error al agregar el empleado: " + error.message);
         console.error(error);
       });
   };
@@ -87,6 +92,16 @@ const AddEmployeeForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Contraseña"
+            required
+          />
+        </div>
+        <div className="form-row">
+          <Label htmlFor="email">Correo:</Label>
+          <Input
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Correo"
             required
           />
         </div>

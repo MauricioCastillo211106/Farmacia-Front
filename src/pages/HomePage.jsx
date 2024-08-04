@@ -1,44 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import FeaturedProducts from '../components/molecules/FeaturedProducts';
-import HowToBuy from '../components/organisms/HowToBuy';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import FeaturedProducts from "../components/molecules/FeaturedProducts";
+import HowToBuy from "../components/organisms/HowToBuy";
 
+const url = import.meta.env.VITE_URL_API;
 const HomePage = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
 
-    if (token) {
-      const myHeaders = new Headers();
-      myHeaders.append("Authorization", `Bearer ${token}`);
+    const myHeaders = new Headers();
 
-      const requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow"
-      };
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
 
-      fetch("https://farmacia-cris-backend.onrender.com/api/product/", requestOptions)
-        .then(response => {
-          if (!response.ok) {
-            if (response.status === 401) {
-              alert('Unauthorized: Please check your token');
-              navigate('/login');
-              return;
-            }
-            throw new Error('An error occurred while fetching data');
+    fetch(`${url}product/client`, requestOptions)
+      .then((response) => {
+        if (!response.ok) {
+          if (response.status === 401) {
+            alert("Unauthorized: Please check your token");
+            navigate("/login");
+            return;
           }
-          return response.json();
-        })
-        .then((result) => {
-          setProducts(result.slice(0, 3));
-        })
-        .catch((error) => console.error(error));
-    } else {
-      console.error("Token no encontrado");
-    }
+          throw new Error("An error occurred while fetching data");
+        }
+        return response.json();
+      })
+      .then((result) => {
+        setProducts(result.slice(0, 3));
+      })
+      .catch((error) => console.error(error));
   }, [navigate]);
 
   return (
