@@ -198,13 +198,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route
         path="/product/:id"
         element={
-          isAuthenticated() ? (
-            <MainLayout>
-              <ProductDescriptionPage />
-            </MainLayout>
-          ) : (
-            <Navigate to="/login" />
-          )
+          <MainLayout>
+            <ProductDescriptionPage />
+          </MainLayout>
         }
       />
     </Routes>
