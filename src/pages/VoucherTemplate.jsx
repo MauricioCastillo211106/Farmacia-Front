@@ -21,9 +21,9 @@ const VoucherTemplate = ({ items, total, piezas,id }) => {
         </thead>
         <tbody>
           {items.map((item, index) => {
-            const price = Number(item.price);
+            const price = Number(item.price)/Number(item.quantity);
             const quantity = Number(item.quantity);
-            const subtotal = price * quantity;
+            const subtotal = Number(item.price);
             return (
               <tr key={index}>
                 <td>{item.name}</td>
