@@ -8,7 +8,7 @@ import {
   faInfoCircle,
   faUser,
   faRightToBracket,
-  faAddressCard
+  faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "../molecules/SearchBar";
 
@@ -20,11 +20,11 @@ const MainHeader = () => {
   return (
     <header className="header">
       <div className="header-left">
-        <h1>Farmacia Cristopher</h1>
+        <Link to="/home" style={{textDecoration:"none"}}>
+          <h1>Farmacia Cristopher</h1>
+        </Link>
       </div>
-      <div className="header-center">
-        <SearchBar />
-      </div>
+
       <nav className="nav-links">
         <Link to="/home">
           <FontAwesomeIcon icon={faHome} /> Inicio
@@ -43,9 +43,15 @@ const MainHeader = () => {
           </>
         ) : (
           <>
-            <Link to="/register"><FontAwesomeIcon icon={faAddressCard} />Regístrate</Link>
-            <Link to="/login"><FontAwesomeIcon icon={faRightToBracket} />Iniciar sesión</Link>
-            </>
+            <Link to="/register">
+              <FontAwesomeIcon icon={faAddressCard} />
+              Regístrate
+            </Link>
+            <Link to="/login">
+              <FontAwesomeIcon icon={faRightToBracket} />
+              Iniciar sesión
+            </Link>
+          </>
         )}
         <Link to="/about">
           <FontAwesomeIcon icon={faInfoCircle} /> Nosotros
