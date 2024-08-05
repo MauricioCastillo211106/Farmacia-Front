@@ -208,7 +208,7 @@ const ShoppingCartPage = () => {
             console.log(3);
             setId(result.id);
             await handleGenerateVoucher(result.id);
-           // navigate(0);
+           navigate(0);
           })
           .catch((error) => {
             alert("Error: " + error.message);
